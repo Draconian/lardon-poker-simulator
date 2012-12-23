@@ -1,17 +1,27 @@
 package org.lardonsoft.lardonpokersimulator.main;
 
-import java.util.Random;
+import org.lardonsoft.lardonpokersimulator.model.card.Card;
+import org.lardonsoft.lardonpokersimulator.player.Player;
 
-public class App 
-{
-    public static void main( String[] args )
-    {
-        long seed = 10;
-        Random random = new Random(seed);
-        System.out.println( "Number:" + random.nextInt(52));
-        System.out.println( "Number:" + random.nextInt(51));
-        System.out.println( "Number:" + random.nextInt(50));
-        System.out.println( "Number:" + random.nextInt(49));
-        System.out.println( "Number:" + random.nextInt(48));
+
+public class App {
+
+    public static void main(String[] args) {
+        
+       Table t = new Table();
+        
+       t.generate(8);
+        
+       for(Player p : t.players)
+       {
+           System.out.println("Name: " + p.getName());
+           System.out.println("Token: " + p.getTokens());
+           
+           for(Card c : p.getCards())
+           {
+               System.out.println("\t" + c.toString());
+           }
+       }
+       
     }
 }
