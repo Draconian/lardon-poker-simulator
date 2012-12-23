@@ -39,46 +39,46 @@ public class PlayerTest {
     @Test
     public void testAddTokens() {
         int tokens = 1000;
-        
+
         Player player = new Player(null, tokens);
         player.addTokens(100);
-        
+
         assertEquals(1100, player.tokens);
     }
-    
+
     @Test
     public void testSubstractTokens() {
         int tokens = 1000;
-        
+
         Player player = new Player(null, tokens);
         player.substractTokens(100);
-        
+
         assertEquals(900, player.tokens);
     }
-    
+
     @Test
     public void testSubstractTokensUnderZero() {
         int tokens = 50;
-        
+
         Player player = new Player(null, tokens);
         player.substractTokens(100);
-        
+
         assertEquals(0, player.tokens);
     }
-    
-    @Test 
+
+    @Test
     public void testIsAliveTrue() {
         Player player = new Player();
         player.tokens = 1;
-        
+
         assertTrue(player.isAlive());
     }
-    
-    @Test 
+
+    @Test
     public void testIsAliveFalse() {
         Player player = new Player();
         player.tokens = 0;
-        
+
         assertFalse(player.isAlive());
     }
 }
