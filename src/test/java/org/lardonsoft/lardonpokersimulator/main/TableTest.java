@@ -15,10 +15,8 @@ package org.lardonsoft.lardonpokersimulator.main;
  * See the License for the specific language governing permissions and
  * limitations under the License
  */
-
-import org.lardonsoft.lardonpokersimulator.main.Table;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Test;
 import org.lardonsoft.lardonpokersimulator.player.RobPlayer;
 
 public class TableTest {
@@ -26,15 +24,15 @@ public class TableTest {
     @Test
     public void testGenerate() {
         int maxNpcPlayer = 8;
-        
+
         Table table = new Table();
         table.generate(maxNpcPlayer);
-        
+
         assertEquals(9, table.players.size());
-        
-        RobPlayer rob = (RobPlayer)table.players.get(8);
+
+        RobPlayer rob = (RobPlayer) table.players.get(8);
         assertEquals(RobPlayer.class, rob.getClass());
-        
+
         assertEquals(2, rob.getCards().size());
     }
 }
