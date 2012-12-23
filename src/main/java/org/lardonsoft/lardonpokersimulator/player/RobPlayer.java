@@ -15,11 +15,13 @@
  */
 package org.lardonsoft.lardonpokersimulator.player;
 
+import org.lardonsoft.lardonpokersimulator.model.card.Deck;
+
 public class RobPlayer extends Player {
 
     protected static final String ROB_NAME = "Rob";
 
-    public RobPlayer(int initialTokens) {
-        super(ROB_NAME, initialTokens);
+    public RobPlayer(int initialTokens, Deck deck) {
+        super(ROB_NAME, initialTokens, deck);
     }
 }

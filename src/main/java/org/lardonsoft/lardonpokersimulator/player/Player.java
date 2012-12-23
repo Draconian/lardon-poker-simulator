@@ -15,17 +15,25 @@
  */
 package org.lardonsoft.lardonpokersimulator.player;
 
+import java.util.ArrayList;
+import javax.media.jai.Histogram;
+import org.lardonsoft.lardonpokersimulator.model.card.Card;
+import org.lardonsoft.lardonpokersimulator.model.card.Deck;
+
 public class Player {
 
     protected String name;
     protected int tokens;
+    protected Deck deck;
+    protected ArrayList<Card> cards = new ArrayList<Card>();
 
     protected Player() {
     }
 
-    public Player(String name, int initialTokens) {
+    public Player(String name, int initialTokens, Deck deck) {
         this.name = name;
         this.tokens = initialTokens;
+        this.deck = deck;
     }
 
     public String getName() {
@@ -34,6 +42,10 @@ public class Player {
 
     public int getTokens() {
         return this.tokens;
+    }
+
+    public ArrayList<Card> getCards() {
+        return this.cards;
     }
 
     public boolean isAlive() {
@@ -50,5 +62,10 @@ public class Player {
         if (this.tokens < 0) {
             this.tokens = 0;
         }
+    }
+
+    public void pickCard() {
+        Card card = deck.pickRandomCard();
+        this.cards.add(card);
     }
 }

@@ -17,13 +17,15 @@ package org.lardonsoft.lardonpokersimulator.player;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+import org.lardonsoft.lardonpokersimulator.model.card.Card.Suit;
+import org.lardonsoft.lardonpokersimulator.model.card.Deck;
 
 public class PlayerTest {
 
     @Test
     public void testGetName() {
         String name = "one name";
-        Player player = new Player(name, 0);
+        Player player = new Player(name, 0, null);
 
         assertEquals(name, player.getName());
     }
@@ -31,7 +33,7 @@ public class PlayerTest {
     @Test
     public void testGetTokens() {
         int tokens = 1000;
-        Player player = new Player(null, tokens);
+        Player player = new Player(null, tokens, null);
 
         assertEquals(tokens, player.getTokens());
     }
@@ -40,7 +42,7 @@ public class PlayerTest {
     public void testAddTokens() {
         int tokens = 1000;
 
-        Player player = new Player(null, tokens);
+        Player player = new Player(null, tokens, null);
         player.addTokens(100);
 
         assertEquals(1100, player.tokens);
@@ -50,7 +52,7 @@ public class PlayerTest {
     public void testSubstractTokens() {
         int tokens = 1000;
 
-        Player player = new Player(null, tokens);
+        Player player = new Player(null, tokens, null);
         player.substractTokens(100);
 
         assertEquals(900, player.tokens);
@@ -60,7 +62,7 @@ public class PlayerTest {
     public void testSubstractTokensUnderZero() {
         int tokens = 50;
 
-        Player player = new Player(null, tokens);
+        Player player = new Player(null, tokens, null);
         player.substractTokens(100);
 
         assertEquals(0, player.tokens);
@@ -80,5 +82,18 @@ public class PlayerTest {
         player.tokens = 0;
 
         assertFalse(player.isAlive());
+    }
+
+    @Test
+    public void testPickCard() {
+        Deck deck = new Deck(10);
+        deck.generateDeck();
+        Player player = new Player(null, 0, deck);
+        player.pickCard();
+
+        assertEquals(1, player.cards.size());
+
+        assertEquals(Suit.Spades, player.cards.get(0).getSuit());
+        assertEquals(3, player.cards.get(0).getNumber());
     }
 }

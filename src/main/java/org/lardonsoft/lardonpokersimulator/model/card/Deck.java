@@ -25,7 +25,7 @@ public class Deck {
     protected ArrayList<Card> cards = new ArrayList<Card>(52);
     protected Random random = new Random();
 
-    protected Deck(int randomSeed) {
+    public Deck(int randomSeed) {
         this.random = new Random(randomSeed);
     }
     
