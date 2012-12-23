@@ -1,3 +1,5 @@
+package org.lardonsoft.lardonpokersimulator.main;
+
 /* 
  * Copyright 2012 LardonSoft
  *
@@ -14,6 +16,7 @@
  * limitations under the License
  */
 
+import org.lardonsoft.lardonpokersimulator.main.Table;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.lardonsoft.lardonpokersimulator.player.RobPlayer;

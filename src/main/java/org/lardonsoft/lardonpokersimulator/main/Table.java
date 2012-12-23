@@ -1,3 +1,5 @@
+package org.lardonsoft.lardonpokersimulator.main;
+
 /* 
  * Copyright 2012 LardonSoft
  *
