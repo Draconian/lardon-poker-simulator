@@ -16,7 +16,6 @@
 package org.lardonsoft.lardonpokersimulator.player;
 
 import java.util.ArrayList;
-import javax.media.jai.Histogram;
 import org.lardonsoft.lardonpokersimulator.model.card.Card;
 import org.lardonsoft.lardonpokersimulator.model.card.Deck;
 
