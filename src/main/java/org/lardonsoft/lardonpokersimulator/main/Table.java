@@ -15,7 +15,6 @@ package org.lardonsoft.lardonpokersimulator.main;
  * See the License for the specific language governing permissions and
  * limitations under the License
  */
-
 import java.util.ArrayList;
 import org.lardonsoft.lardonpokersimulator.model.card.Card;
 import org.lardonsoft.lardonpokersimulator.model.card.Deck;
@@ -28,13 +27,14 @@ public class Table {
     protected ArrayList<Player> players = new ArrayList<Player>();
     protected Deck deck = new Deck();
     protected ArrayList<Card> tableCards = new ArrayList<Card>(5);
-    
+
     public Table() {
         deck.generateDeck();
     }
 
     public void generate(int numberNpcPlayer) {
         Player newPlayer;
+
         for (int i = 1; i <= numberNpcPlayer; i++) {
             newPlayer = new Player(String.format("Player %d", i), INITIAL_TOKENS, deck);
             newPlayer.pickCard();
@@ -47,12 +47,8 @@ public class Table {
         newPlayer.pickCard();
         newPlayer.pickCard();
         this.players.add(newPlayer);
-
-        
-        
-        
     }
-    
+
     protected void generateTableCards() {
         this.tableCards.add(deck.pickRandomCard());
         this.tableCards.add(deck.pickRandomCard());
