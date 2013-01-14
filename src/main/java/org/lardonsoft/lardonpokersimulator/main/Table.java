@@ -17,6 +17,7 @@ package org.lardonsoft.lardonpokersimulator.main;
  */
 
 import java.util.ArrayList;
+import org.lardonsoft.lardonpokersimulator.model.card.Card;
 import org.lardonsoft.lardonpokersimulator.model.card.Deck;
 import org.lardonsoft.lardonpokersimulator.player.Player;
 import org.lardonsoft.lardonpokersimulator.player.RobPlayer;
@@ -26,7 +27,8 @@ public class Table {
     protected static final int INITIAL_TOKENS = 5000;
     protected ArrayList<Player> players = new ArrayList<Player>();
     protected Deck deck = new Deck();
-
+    protected ArrayList<Card> tableCards = new ArrayList<Card>(5);
+    
     public Table() {
         deck.generateDeck();
     }
@@ -46,5 +48,13 @@ public class Table {
         newPlayer.pickCard();
         this.players.add(newPlayer);
 
+        
+        
+        
+    }
+    
+    protected void generateTableCards() {
+        this.tableCards.add(deck.pickRandomCard());
+        this.tableCards.add(deck.pickRandomCard());
     }
 }

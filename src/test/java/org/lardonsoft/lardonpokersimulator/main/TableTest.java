@@ -35,4 +35,13 @@ public class TableTest {
 
         assertEquals(2, rob.getCards().size());
     }
+    
+    @Test
+    public void testGenerateTableCards() {
+        Table table = new Table();
+        
+        table.generateTableCards();
+        
+        assertEquals(2, table.tableCards.size());
+    }
 }
